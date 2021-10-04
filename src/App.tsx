@@ -1,24 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SideBarMenu from './components/SideBarMenu';
+import { SideBarMenuItem, SideBarMenuCard } from './types/types';
+import {
+  FcCalendar,
+  FcAutomatic,
+  FcBearish,
+  FcCurrencyExchange,
+} from 'react-icons/fc';
+import profileImage from '../src/images/JhormanOrozco.jpg';
 
 function App() {
+  const items: SideBarMenuItem[] = [
+    {
+      id: '1',
+      label: 'Config',
+      icon: FcAutomatic,
+      url: '/',
+    },
+    {
+      id: '2',
+      label: 'Statistics',
+      icon: FcBearish,
+      url: '/',
+    },
+    {
+      id: '3',
+      label: 'Balance',
+      icon: FcCurrencyExchange,
+      url: '/',
+    },
+    {
+      id: '4',
+      label: 'Calendar',
+      icon: FcCalendar,
+      url: '/',
+    },
+  ];
+
+  const card: SideBarMenuCard = {
+    id: 'card01',
+    displayName: 'Jhorman Orozco',
+    photoUrl: profileImage,
+    title: 'Web UI Developer',
+    url: '/',
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SideBarMenu items={items} card={card} />
     </div>
   );
 }
